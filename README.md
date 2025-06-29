@@ -1,0 +1,69 @@
+# 🕵️ LinkedIn Profile Scraper (People + Companies)
+
+This repository contains two Python scripts that **scrape LinkedIn profile and company information** using `Selenium` and `undetected-chromedriver` — a stealth solution that avoids bot detection and bypasses LinkedIn's scraping restrictions.
+
+It simulates **human-like behavior**, manages cookies to stay logged in, and ensures **LinkedIn does not detect or block your actions** during scraping.
+
+---
+
+## 📦 Features
+
+- ✅ Uses `undetected-chromedriver` to bypass LinkedIn bot detection
+- ✅ Simulates human scrolling and random delays
+- ✅ Waits for full internet connection before actions
+- ✅ Reuses login session via `cookies.pkl`
+- ✅ Skips already-processed profiles/companies
+- ✅ Automatically resumes after interruptions
+- ✅ Modular: Profile scraping and Company scraping are separated
+
+---
+
+## 🧠 What It Does
+
+- `LinkedinProfileScraper.py`  
+  Scrapes LinkedIn profiles from a list of profile URLs:
+  - Name
+  - Headline
+  - Location
+  - Current company link (from experience section)
+
+- `LinkedinCompanyScraper.py`  
+  Opens LinkedIn company pages and extracts official company name from each company link in the output file.
+
+---
+## 📥 Sample Input Format
+The input file should be an Excel file with one column named Link.
+Use the provided sample_links.xlsx as a template.
+
+## 🚀 How to Use
+### 1️⃣ Run the Profile Scraper
+bash
+Copy
+Edit
+python LinkedinProfileScraper.py
+
+It will ask you to log into LinkedIn the first time.
+Once logged in, it saves your session to cookies.pkl.
+Then it visits each profile, extracts key data, and saves it to linkedin_info.xlsx.
+
+### 2️⃣ Run the Company Scraper
+bash
+Copy
+Edit
+python LinkedinCompanyScraper.py
+
+Reads the CompanyLink column from linkedin_info.xlsx
+Visits each unique company page
+Extracts the official company name from the page
+Adds this to the Company column in the same Excel file
+
+
+## 🛑 Disclaimer
+⚠️ This project is for educational and research purposes only.
+Scraping LinkedIn may violate their Terms of Service
+Do NOT use this at scale or for commercial purposes
+Do NOT share scraped data or real profile links publicly
+
+## 🤝 Contributing
+Contributions, improvements, and suggestions are welcome.
+Please open a PR or issue if you'd like to contribute.
